@@ -1,0 +1,1161 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyP9McGxdl5qWx36QzIvspWu",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Sonlux/Programming-with-Python/blob/main/lab%20practice\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "8NYct0RCPaMl",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "df4f510b-ac87-4a56-ec5a-6583c47514ab"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Grade: B (Very Good)\n"
+          ]
+        }
+      ],
+      "source": [
+        "#Function – Student Grade Evaluation\n",
+        "def evaluate_grade(lux):\n",
+        "    if not 0 <= lux <= 100:\n",
+        "        return \"Invalid score. Please enter a value between 0 and 100.\"\n",
+        "    if lux >= 90:\n",
+        "        return \"Grade: A (Excellent)\"\n",
+        "    elif lux >= 80:\n",
+        "        return \"Grade: B (Very Good)\"\n",
+        "    elif lux >= 70:\n",
+        "        return \"Grade: C (Good)\"\n",
+        "    elif lux >= 60:\n",
+        "        return \"Grade: D (Fair)\"\n",
+        "    elif lux >= 50:\n",
+        "        return \"Grade: E (Pass)\"\n",
+        "    else:\n",
+        "        return \"Grade: F (Fail)\"\n",
+        "\n",
+        "# Example usage:\n",
+        "student_score = 85\n",
+        "print(evaluate_grade(student_score))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "def factorial(lux):\n",
+        "    if lux < 0:\n",
+        "        return \"Invalid input. Enter a non-negative integer.\"\n",
+        "    elif lux == 0 or lux == 1:\n",
+        "        return 1\n",
+        "    else:\n",
+        "        return lux * factorial(lux - 1)\n",
+        "\n",
+        "# Example usage:\n",
+        "num = 5\n",
+        "print(f\"Factorial of {num} is {factorial(num)}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Aw3qzuOkR6Xk",
+        "outputId": "24f7e5d2-94bc-4b0b-a132-26db0ee9c324"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Factorial of 5 is 120\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class lux:\n",
+        "    def __init__(self, name, roll_no, grade):\n",
+        "        self.name = name\n",
+        "        self.roll_no = roll_no\n",
+        "        self.grade = grade\n",
+        "\n",
+        "    def display(self):\n",
+        "        print(f\"Student Name: {self.name}\")\n",
+        "        print(f\"Roll Number: {self.roll_no}\")\n",
+        "        print(f\"Grade: {self.grade}\")\n",
+        "\n",
+        "# Example usage:\n",
+        "student1 = lux(\"Lakshan\", 101, \"A\")\n",
+        "student1.display()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "x4SeImztTP_8",
+        "outputId": "a1ede688-3e0e-43f2-d6e9-42d9129f7124"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Student Name: Lakshan\n",
+            "Roll Number: 101\n",
+            "Grade: A\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class luxAccount:\n",
+        "    def __init__(self, account_holder, initial_balance=0.0):\n",
+        "        self.account_holder = account_holder\n",
+        "        self.balance = initial_balance\n",
+        "\n",
+        "    def deposit(self, amount):\n",
+        "        if amount > 0:\n",
+        "            self.balance += amount\n",
+        "            print(f\"Deposited ₹{amount:.2f}. New balance: ₹{self.balance:.2f}\")\n",
+        "        else:\n",
+        "            print(\"Deposit amount must be positive.\")\n",
+        "\n",
+        "    def withdraw(self, amount):\n",
+        "        if amount <= self.balance:\n",
+        "            self.balance -= amount\n",
+        "            print(f\"Withdrew ₹{amount:.2f}. New balance: ₹{self.balance:.2f}\")\n",
+        "        else:\n",
+        "            print(\"Insufficient balance.\")\n",
+        "\n",
+        "    def display_balance(self):\n",
+        "        print(f\"Account Holder: {self.account_holder}\")\n",
+        "        print(f\"Current Balance: ₹{self.balance:.2f}\")\n",
+        "\n",
+        "account1 = luxAccount(\"Lakshan\", 1000.0)\n",
+        "account1.display_balance()\n",
+        "account1.deposit(500.0)\n",
+        "account1.withdraw(300.0)\n",
+        "account1.display_balance()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "KBn1qK7aU0Dz",
+        "outputId": "78ca13d5-a9f3-4ed3-80fb-acc33910aae1"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Account Holder: Lakshan\n",
+            "Current Balance: ₹1000.00\n",
+            "Deposited ₹500.00. New balance: ₹1500.00\n",
+            "Withdrew ₹300.00. New balance: ₹1200.00\n",
+            "Account Holder: Lakshan\n",
+            "Current Balance: ₹1200.00\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class luxEmployee:\n",
+        "    def __init__(self, name, employee_id, salary):\n",
+        "        self.name = name\n",
+        "        self.employee_id = employee_id\n",
+        "        self.salary = salary\n",
+        "\n",
+        "    def display_details(self):\n",
+        "        print(f\"Name: {self.name}\")\n",
+        "        print(f\"Employee ID: {self.employee_id}\")\n",
+        "        print(f\"Salary: ₹{self.salary:.2f}\")\n",
+        "\n",
+        "class Manager(luxEmployee):\n",
+        "    def __init__(self, name, employee_id, salary, department):\n",
+        "        super().__init__(name, employee_id, salary)\n",
+        "        self.department = department\n",
+        "\n",
+        "    def display_details(self):\n",
+        "        super().display_details()\n",
+        "        print(f\"Department: {self.department}\")\n",
+        "\n",
+        "emp1 = luxEmployee(\"Ananya\", 1001, 50000)\n",
+        "mgr1 = Manager(\"Lakshan\", 2001, 80000, \"Sales\")\n",
+        "\n",
+        "print(\"\\nEmployee Details:\")\n",
+        "emp1.display_details()\n",
+        "\n",
+        "print(\"\\nManager Details:\")\n",
+        "mgr1.display_details()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "7NVSE9KzVul3",
+        "outputId": "fe5b4d02-1b57-452b-d737-4f880ee257ea"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "Employee Details:\n",
+            "Name: Ananya\n",
+            "Employee ID: 1001\n",
+            "Salary: ₹50000.00\n",
+            "\n",
+            "Manager Details:\n",
+            "Name: Lakshan\n",
+            "Employee ID: 2001\n",
+            "Salary: ₹80000.00\n",
+            "Department: Sales\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Calculatorlux:\n",
+        "    def add(self, a=0, b=0, c=0):\n",
+        "        return a + b + c\n",
+        "\n",
+        "calc = Calculatorlux()\n",
+        "\n",
+        "print(\"Sum of two numbers:\", calc.add(10, 20))       # 30\n",
+        "print(\"Sum of three numbers:\", calc.add(5, 10, 15))   # 30\n",
+        "print(\"Sum with one number:\", calc.add(42))           # 42\n",
+        "print(\"Sum with no arguments:\", calc.add())           # 0"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "CaMaZME8W0pE",
+        "outputId": "b921e4f1-41db-4b87-e16c-6b515882f3d0"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Sum of two numbers: 30\n",
+            "Sum of three numbers: 30\n",
+            "Sum with one number: 42\n",
+            "Sum with no arguments: 0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class CompluxNumber:\n",
+        "    def __init__(self, real, imag):\n",
+        "        self.real = real\n",
+        "        self.imag = imag\n",
+        "\n",
+        "    def __mul__(self, other):\n",
+        "        real_part = self.real * other.real - self.imag * other.imag\n",
+        "        imag_part = self.real * other.imag + self.imag * other.real\n",
+        "        return CompluxNumber(real_part, imag_part)\n",
+        "\n",
+        "    def __str__(self):\n",
+        "        sign = '+' if self.imag >= 0 else '-'\n",
+        "        return f\"{self.real} {sign} {abs(self.imag)}i\"\n",
+        "\n",
+        "c1 = CompluxNumber(2, 3)\n",
+        "c2 = CompluxNumber(4, -5)\n",
+        "\n",
+        "result = c1 * c2\n",
+        "print(f\"({c1}) * ({c2}) = {result}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VauVylIQXU4v",
+        "outputId": "ff007a48-6310-4a17-9ce1-ab9ab1a0cc4d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "(2 + 3i) * (4 - 5i) = 23 + 2i\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Vehicle:\n",
+        "    def start_engine(self):\n",
+        "        print(\"Starting generic vehicle engine...\")\n",
+        "\n",
+        "class lux(Vehicle):\n",
+        "    def start_engine(self):\n",
+        "        # Overriding the parent class method\n",
+        "        print(\"Starting car engine with keyless ignition...\")\n",
+        "\n",
+        "v = Vehicle()\n",
+        "v.start_engine()  # Output: Starting generic vehicle engine\n",
+        "\n",
+        "c = lux()\n",
+        "c.start_engine()  # Output: Starting car engine with keyless ignition"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Qd7DRh8DX3GY",
+        "outputId": "1824df15-9144-4aee-ee77-ff947299edb9"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Starting generic vehicle engine...\n",
+            "Starting car engine with keyless ignition...\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# List creation\n",
+        "lux = [\"apple\", \"banana\", \"cherry\"]\n",
+        "print(\"Initial list:\", lux)\n",
+        "\n",
+        "# Accessing elements\n",
+        "print(\"First fruit:\", lux[0])\n",
+        "print(\"Last fruit:\", lux[-1])\n",
+        "\n",
+        "# Adding elements\n",
+        "lux.append(\"orange\")\n",
+        "lux.insert(1, \"mango\")\n",
+        "print(\"After adding mango and orange:\", lux)\n",
+        "\n",
+        "# Removing elements\n",
+        "lux.remove(\"banana\")\n",
+        "popped = lux.pop()\n",
+        "del lux[0]\n",
+        "print(\"After removing banana, popping last, and deleting first:\", lux)\n",
+        "\n",
+        "# Updating elements\n",
+        "lux[0] = \"kiwi\"\n",
+        "print(\"After updating first item to kiwi:\", lux)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "cxTraxIuZcce",
+        "outputId": "3db6fabf-4b9e-4dc4-fdcd-29798643de5b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Initial list: ['apple', 'banana', 'cherry']\n",
+            "First fruit: apple\n",
+            "Last fruit: cherry\n",
+            "After adding mango and orange: ['apple', 'mango', 'banana', 'cherry', 'orange']\n",
+            "After removing banana, popping last, and deleting first: ['mango', 'cherry']\n",
+            "After updating first item to kiwi: ['kiwi', 'cherry']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Business Analytics: Storing daily revenue\n",
+        "lux_daily_revenue = [1500, 1800, 2200, 2100, 1900]\n",
+        "print(\"Total Revenue:\", sum(lux_daily_revenue))\n",
+        "print(\"Average Revenue:\", sum(lux_daily_revenue) / len(lux_daily_revenue))\n",
+        "\n",
+        "#Education: Student names and scores\n",
+        "students = [\"Lakshan\", \"Ananya\", \"Ravi\", \"Neha\"]\n",
+        "scores = [85, 92, 78, 88]\n",
+        "for name, score in zip(students, scores):\n",
+        "    print(f\"{name} scored {score}\")\n",
+        "\n",
+        "#Game Development: Player inventory\n",
+        "inventory = [\"sword\", \"shield\", \"healing potion\"]\n",
+        "inventory.append(\"magic ring\")\n",
+        "inventory.remove(\"shield\")\n",
+        "print(\"Current Inventory:\", inventory)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VnApHMHvbfeI",
+        "outputId": "407416f1-5d00-478a-9b26-150fd835cf74"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Total Revenue: 9500\n",
+            "Average Revenue: 1900.0\n",
+            "Lakshan scored 85\n",
+            "Ananya scored 92\n",
+            "Ravi scored 78\n",
+            "Neha scored 88\n",
+            "Current Inventory: ['sword', 'healing potion', 'magic ring']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 🔹 Creating Sets\n",
+        "lux_a = {1, 2, 3, 4, 5}\n",
+        "lux_b = {4, 5, 6, 7, 8}\n",
+        "print(\"Set A:\", lux_a)\n",
+        "print(\"Set B:\", lux_b)\n",
+        "\n",
+        "# 🔹 Union\n",
+        "union_lux = lux_a | lux_b\n",
+        "print(\"Union of A and B:\", union_lux)\n",
+        "\n",
+        "# 🔹 Intersection\n",
+        "intersection_set = lux_a & lux_b\n",
+        "print(\"Intersection of A and B:\", intersection_set)\n",
+        "\n",
+        "# 🔹 Difference\n",
+        "diff_a_b = lux_a - lux_b\n",
+        "diff_b_a = lux_b - lux_a\n",
+        "print(\"A - B:\", diff_a_b)\n",
+        "print(\"B - A:\", diff_b_a)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bgDcpeG_dPl0",
+        "outputId": "8cafae11-f1dc-4cf9-ccf4-0d4b647d5056"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Set A: {1, 2, 3, 4, 5}\n",
+            "Set B: {4, 5, 6, 7, 8}\n",
+            "Union of A and B: {1, 2, 3, 4, 5, 6, 7, 8}\n",
+            "Intersection of A and B: {4, 5}\n",
+            "A - B: {1, 2, 3}\n",
+            "B - A: {8, 6, 7}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Sample data\n",
+        "names = [\"Lakshan\", \"Ravi\", \"Neha\", \"Ravi\", \"Neha\"]\n",
+        "emails_day1 = {\"a@gmail.com\", \"b@gmail.com\", \"c@gmail.com\"}\n",
+        "emails_day2 = {\"b@gmail.com\", \"c@gmail.com\", \"d@gmail.com\"}\n",
+        "tags_post = {\"python\", \"recursion\", \"oop\", \"coding\"}\n",
+        "preferred_tags = {\"oop\", \"cybersecurity\", \"data\"}\n",
+        "text_words = {\"the\", \"quick\", \"brown\", \"fox\"}\n",
+        "stop_words = {\"the\", \"is\", \"an\", \"a\"}\n",
+        "a = {1, 2, 3}\n",
+        "b = {3, 4, 5}\n",
+        "labels = [\"spam\", \"ham\", \"spam\", \"eggs\"]\n",
+        "user_permissions = {\"read\", \"write\"}\n",
+        "admin_permissions = {\"read\", \"write\", \"delete\"}\n",
+        "\n",
+        "# Set operations\n",
+        "unique_names = set(names)\n",
+        "new_users = emails_day2 - emails_day1\n",
+        "matched_tags = tags_post & preferred_tags\n",
+        "filtered_text = text_words - stop_words\n",
+        "union_ab = a | b\n",
+        "intersection_ab = a & b\n",
+        "sym_diff_ab = a ^ b\n",
+        "unique_labels = set(labels)\n",
+        "missing_permissions = admin_permissions - user_permissions\n",
+        "\n",
+        "# Display results\n",
+        "print(\"Unique names:\", unique_names)\n",
+        "print(\"New users on day 2:\", new_users)\n",
+        "print(\"Matched tags:\", matched_tags)\n",
+        "print(\"Filtered text:\", filtered_text)\n",
+        "print(\"Union:\", union_ab)\n",
+        "print(\"Intersection:\", intersection_ab)\n",
+        "print(\"Symmetric Difference:\", sym_diff_ab)\n",
+        "print(\"Unique labels:\", unique_labels)\n",
+        "print(\"Permissions not granted to user:\", missing_permissions)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "NQNhwuO-ekVX",
+        "outputId": "929afedf-0848-45d5-d5b7-fd9e728bd55e"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Unique names: {'Ravi', 'Lakshan', 'Neha'}\n",
+            "New users on day 2: {'d@gmail.com'}\n",
+            "Matched tags: {'oop'}\n",
+            "Filtered text: {'quick', 'brown', 'fox'}\n",
+            "Union: {1, 2, 3, 4, 5}\n",
+            "Intersection: {3}\n",
+            "Symmetric Difference: {1, 2, 4, 5}\n",
+            "Unique labels: {'eggs', 'ham', 'spam'}\n",
+            "Permissions not granted to user: {'delete'}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# --- TUPLE SETUP ---\n",
+        "person = (\"Lakshan\", 26, \"Cybersecurity\")\n",
+        "coordinates = (13.0827, 80.2707)\n",
+        "rgb_color = (255, 100, 0)\n",
+        "subjects = (\"Math\", \"English\", \"Python\", \"Math\")\n",
+        "\n",
+        "# --- OPERATIONS ---\n",
+        "# Indexing and slicing\n",
+        "first_subject = subjects[0]\n",
+        "last_subject = subjects[-1]\n",
+        "middle_slice = subjects[1:3]\n",
+        "\n",
+        "# Unpacking\n",
+        "name, age, field = person\n",
+        "\n",
+        "# Concatenation\n",
+        "profile = person + coordinates\n",
+        "\n",
+        "# Nesting\n",
+        "nested = (person, coordinates, rgb_color)\n",
+        "\n",
+        "# Repetition\n",
+        "repeated = subjects * 2\n",
+        "\n",
+        "# Counting & Index\n",
+        "math_count = subjects.count(\"Math\")\n",
+        "python_index = subjects.index(\"Python\")\n",
+        "\n",
+        "# Displaying results\n",
+        "print(\"Name:\", name)\n",
+        "print(\"Age:\", age)\n",
+        "print(\"Field:\", field)\n",
+        "print(\"First Subject:\", first_subject)\n",
+        "print(\"Last Subject:\", last_subject)\n",
+        "print(\"Middle Subjects:\", middle_slice)\n",
+        "print(\"Full Profile:\", profile)\n",
+        "print(\"Nested Tuple:\", nested)\n",
+        "print(\"Repeated Subjects:\", repeated)\n",
+        "print(\"Count of 'Math':\", math_count)\n",
+        "print(\"Index of 'Python':\", python_index)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "54QpfkSJhipA",
+        "outputId": "c4cd754e-aa1e-4ef5-e82e-74223e38c888"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Name: Lakshan\n",
+            "Age: 26\n",
+            "Field: Cybersecurity\n",
+            "First Subject: Math\n",
+            "Last Subject: Math\n",
+            "Middle Subjects: ('English', 'Python')\n",
+            "Full Profile: ('Lakshan', 26, 'Cybersecurity', 13.0827, 80.2707)\n",
+            "Nested Tuple: (('Lakshan', 26, 'Cybersecurity'), (13.0827, 80.2707), (255, 100, 0))\n",
+            "Repeated Subjects: ('Math', 'English', 'Python', 'Math', 'Math', 'English', 'Python', 'Math')\n",
+            "Count of 'Math': 2\n",
+            "Index of 'Python': 2\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# --- Tuple Setup: Structured and Immutable Records ---\n",
+        "# Simulating login events as tuples\n",
+        "login_events_lux = [\n",
+        "    (\"Lakshan\", \"10.0.0.1\", \"Success\"),\n",
+        "    (\"Ravi\", \"10.0.0.2\", \"Failed\"),\n",
+        "    (\"Neha\", \"10.0.0.3\", \"Success\"),\n",
+        "    (\"Lakshan\", \"10.0.0.1\", \"Success\")\n",
+        "]\n",
+        "\n",
+        "# RGB configuration tuple\n",
+        "alert_color = (255, 0, 0)\n",
+        "\n",
+        "# Geolocation as tuple\n",
+        "server_location = (13.0827, 80.2707)\n",
+        "\n",
+        "# Subject score tuple\n",
+        "score = (\"Python\", 100)\n",
+        "\n",
+        "# --- Tuple Operations ---\n",
+        "# 1. Count successful logins for Lakshan\n",
+        "success_count = sum(1 for user, ip, status in login_events_lux if user == \"Lakshan\" and status == \"Success\")\n",
+        "\n",
+        "# 2. Unpack alert color\n",
+        "red, green, blue = alert_color\n",
+        "\n",
+        "# 3. Access server coordinates\n",
+        "latitude = server_location[0]\n",
+        "longitude = server_location[1]\n",
+        "\n",
+        "# 4. Immutable display of subject and score\n",
+        "subject, marks = score\n",
+        "\n",
+        "# 5. Unique users (using set on tuple records)\n",
+        "unique_users = set(event[0] for event in login_events_lux)\n",
+        "\n",
+        "# --- Display ---\n",
+        "print(\"Successful logins by Lakshan:\", success_count)\n",
+        "print(f\"Alert color - R:{red} G:{green} B:{blue}\")\n",
+        "print(f\"Server Location - Latitude: {latitude}, Longitude: {longitude}\")\n",
+        "print(f\"Score -> {subject}: {marks}\")\n",
+        "print(\"Unique users:\", unique_users)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "oCgTsut-iYpW",
+        "outputId": "d53bcbf3-c273-4d2e-9a66-32f739c4f66a"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Successful logins by Lakshan: 2\n",
+            "Alert color - R:255 G:0 B:0\n",
+            "Server Location - Latitude: 13.0827, Longitude: 80.2707\n",
+            "Score -> Python: 100\n",
+            "Unique users: {'Ravi', 'Lakshan', 'Neha'}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# --- Dictionary Setup ---\n",
+        "lux_user_profile = {\n",
+        "    \"name\": \"Lakshan\",\n",
+        "    \"age\": 26,\n",
+        "    \"field\": \"Cybersecurity\",\n",
+        "    \"certified\": True\n",
+        "}\n",
+        "\n",
+        "scores = {\n",
+        "    \"Math\": 95,\n",
+        "    \"English\": 88,\n",
+        "    \"Python\": 100\n",
+        "}\n",
+        "\n",
+        "# --- Dictionary Operations ---\n",
+        "# Access & Update\n",
+        "lux_user_profile[\"age\"] += 1\n",
+        "lux_user_profile[\"location\"] = \"Chengalpattu\"\n",
+        "\n",
+        "# Get with default\n",
+        "phone = lux_user_profile.get(\"phone\", \"Not Provided\")\n",
+        "\n",
+        "# Deletion\n",
+        "del scores[\"English\"]\n",
+        "\n",
+        "# Looping\n",
+        "for subject, score in scores.items():\n",
+        "    print(f\"{subject}: {score}\")\n",
+        "\n",
+        "# Keys & Values\n",
+        "print(\"Subjects:\", list(scores.keys()))\n",
+        "print(\"Scores:\", list(scores.values()))\n",
+        "\n",
+        "# Conditional Check\n",
+        "if \"Python\" in scores:\n",
+        "    print(\"Python score is available\")\n",
+        "\n",
+        "# Length of dictionary\n",
+        "print(\"Profile fields count:\", len(lux_user_profile))\n",
+        "\n",
+        "# Merging dictionaries\n",
+        "merged = {**lux_user_profile, **scores}\n",
+        "\n",
+        "# Display merged\n",
+        "print(\"\\nMerged Dictionary:\")\n",
+        "for key, val in merged.items():\n",
+        "    print(f\"{key}: {val}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "75tKIMFHi156",
+        "outputId": "2e151084-3e62-4093-cb94-b89967d1b4aa"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Math: 95\n",
+            "Python: 100\n",
+            "Subjects: ['Math', 'Python']\n",
+            "Scores: [95, 100]\n",
+            "Python score is available\n",
+            "Profile fields count: 5\n",
+            "\n",
+            "Merged Dictionary:\n",
+            "name: Lakshan\n",
+            "age: 27\n",
+            "field: Cybersecurity\n",
+            "certified: True\n",
+            "location: Chengalpattu\n",
+            "Math: 95\n",
+            "Python: 100\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# --- Dictionary Setup ---\n",
+        "user = {\n",
+        "    \"name\": \"Lakshan\",\n",
+        "    \"age\": 26,\n",
+        "    \"domain\": \"Cybersecurity\"\n",
+        "}\n",
+        "\n",
+        "scores = {\n",
+        "    \"Python\": 100,\n",
+        "    \"Math\": 95,\n",
+        "    \"Cybersecurity\": 98\n",
+        "}\n",
+        "\n",
+        "logs = [\"Success\", \"Failed\", \"Failed\", \"Success\", \"Success\"]\n",
+        "\n",
+        "# --- Dictionary Applications ---\n",
+        "# 1. Update user info\n",
+        "user[\"age\"] += 1\n",
+        "user[\"location\"] = \"Chengalpattu\"\n",
+        "user[\"certified\"] = True\n",
+        "\n",
+        "# 2. Check for a key and respond\n",
+        "if \"Python\" in scores:\n",
+        "    print(\"✅ Python score exists:\", scores[\"Python\"])\n",
+        "\n",
+        "# 3. Loop through scores\n",
+        "print(\"\\n📚 Subject Scores:\")\n",
+        "for subject, score in scores.items():\n",
+        "    print(f\"{subject}: {score}\")\n",
+        "\n",
+        "# 4. Frequency count from logs\n",
+        "frequency_lux = {}\n",
+        "for status in logs:\n",
+        "    frequency_lux[status] = frequency_lux.get(status, 0) + 1\n",
+        "\n",
+        "# 5. Merge dictionaries\n",
+        "final_report = {**user, **frequency_lux}\n",
+        "\n",
+        "# --- Display Final Report ---\n",
+        "print(\"\\n📋 Final Report:\")\n",
+        "for key, val in final_report.items():\n",
+        "    print(f\"{key}: {val}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "YmIn5zorjbI9",
+        "outputId": "604003ae-0504-4d44-f414-7930dbb3e796"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "✅ Python score exists: 100\n",
+            "\n",
+            "📚 Subject Scores:\n",
+            "Python: 100\n",
+            "Math: 95\n",
+            "Cybersecurity: 98\n",
+            "\n",
+            "📋 Final Report:\n",
+            "name: Lakshan\n",
+            "age: 27\n",
+            "domain: Cybersecurity\n",
+            "location: Chengalpattu\n",
+            "certified: True\n",
+            "Success: 3\n",
+            "Failed: 2\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "lux = \"Hello World\"\n",
+        "print(\"Original:\", lux)\n",
+        "print(\"Slice [0:5]:\", lux[0:5])      # Hello\n",
+        "print(\"Slice [-5:]:\", lux[-5:])      # World\n",
+        "print(\"Character at index 6:\", lux[6])  # W\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bJxIP2pMcpsR",
+        "outputId": "08de4690-680c-41a2-d5be-54e7c95681f8"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Original: Hello World\n",
+            "Slice [0:5]: Hello\n",
+            "Slice [-5:]: World\n",
+            "Character at index 6: W\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "lux = \"Python is Fun\"\n",
+        "print(\"Upper:\", lux.upper())\n",
+        "print(\"Lower:\", lux.lower())\n",
+        "print(\"Title:\", lux.title())\n",
+        "print(\"Replace 'Fun' with 'Powerful':\", lux.replace(\"Fun\", \"Powerful\"))\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "AizHByKtfBFu",
+        "outputId": "098e4b54-a69b-4539-a72f-45c3c05b74dd"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Upper: PYTHON IS FUN\n",
+            "Lower: python is fun\n",
+            "Title: Python Is Fun\n",
+            "Replace 'Fun' with 'Powerful': Python is Powerful\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import re\n",
+        "lux = \"Welcome to Python programming\"\n",
+        "match = re.search(r\"Python\", lux)\n",
+        "print(\"Match found at:\", match.span() if match else \"No match\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8ngWkGCpfVs3",
+        "outputId": "036c5a22-c339-49bf-b12f-e8dda2f907a9"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Match found at: (11, 17)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import re\n",
+        "lux = \"Contact us at support@example.com or sales@myshop.org\"\n",
+        "emails = re.findall(r\"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\", lux)\n",
+        "print(\"Emails found:\", emails)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "FFmZxsZ3fi62",
+        "outputId": "2a4275c4-3f89-4e9f-b77f-664dae59d27b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Emails found: ['support@example.com', 'sales@myshop.org']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import re\n",
+        "lux = \"The years 1999, 2023, and 2050 were mentioned.\"\n",
+        "numbers = re.findall(r\"\\b\\d{4}\\b\", lux)\n",
+        "print(\"4-digit numbers:\", numbers)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "2N0IKcfHiVk_",
+        "outputId": "12137c06-fbb7-4047-a390-f3f15d45ddd3"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "4-digit numbers: ['1999', '2023', '2050']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import re\n",
+        "lux = \"Order 3 apples and 20 bananas.\"\n",
+        "result = re.sub(r\"\\d+\", \"#\", lux)\n",
+        "print(\"After replacement:\", result)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "LXFL7DlyikNr",
+        "outputId": "e98c9aa3-b58d-4f8f-d7a2-6e1714df7f26"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "After replacement: Order # apples and # bananas.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import re\n",
+        "lux = \"15-08-2025\"\n",
+        "match = re.match(r\"(\\d{2})-(\\d{2})-(\\d{4})\", lux)\n",
+        "if match:\n",
+        "    day, month, year = match.groups()\n",
+        "    print(\"Day:\", day)\n",
+        "    print(\"Month:\", month)\n",
+        "    print(\"Year:\", year)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "LXSIlAloizea",
+        "outputId": "a9fa6de6-6b1e-452a-ba7f-d75342b731e0"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Day: 15\n",
+            "Month: 08\n",
+            "Year: 2025\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import re\n",
+        "lux = \"The price is [100 dollars] and the discount is [20 percent] only.\"\n",
+        "# Greedy matching\n",
+        "greedy = re.findall(r\"\\[.*\\]\", lux)\n",
+        "# Lazy matching\n",
+        "lazy = re.findall(r\"\\[.*?\\]\", lux)\n",
+        "print(\"Original text:\", lux)\n",
+        "print(\"\\nGreedy Match:\", greedy)\n",
+        "print(\"Lazy Match:\", lazy)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "NXyryTcajg2Q",
+        "outputId": "126df5ac-1395-472b-afed-36f611d13774"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Original text: The price is [100 dollars] and the discount is [20 percent] only.\n",
+            "\n",
+            "Greedy Match: ['[100 dollars] and the discount is [20 percent]']\n",
+            "Lazy Match: ['[100 dollars]', '[20 percent]']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import re\n",
+        "lux = \"Abc@1234\"\n",
+        "pattern = r\"^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&]).{8,}$\"\n",
+        "if re.match(pattern, lux):\n",
+        "    print(\"Strong password\")\n",
+        "else:\n",
+        "    print(\"Weak password\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "sUo99Ew9kPC8",
+        "outputId": "0b0efdc2-29e8-40e6-cbae-6e359c59a62f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Strong password\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import re\n",
+        "lux = \"Loving the #Python and #Regex journey! #CodingLife\"\n",
+        "hashtags = re.findall(r\"#\\w+\", lux)\n",
+        "print(\"Hashtags:\", hashtags)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vMVDrtIPkY52",
+        "outputId": "1b906ac3-f79d-4b85-9ea3-6785c2f9020b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hashtags: ['#Python', '#Regex', '#CodingLife']\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
